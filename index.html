@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DYPIU | Student Management Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="logo">
+    <img src="logo.png" alt="DYPIU University Logo">
+</div>
+            <div>
+                <h2>DYPIU</h2>
+                <p>STUDENT PORTAL</p>
+            </div>
+        </div>
+
+        <p class="nav-label">MENU</p>
+        <nav>
+            <a href="#dashboard" class="nav-link active">▦ &nbsp; Dashboard</a>
+            <a href="#studentsSection" class="nav-link">♙ &nbsp; Students</a>
+            <a href="#faqSection" class="nav-link">✦ &nbsp; Student Help</a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <p>Student Management System</p>
+            <small>Academic Project · 2026</small>
+        </div>
+    </aside>
+
+    <main class="main">
+
+        <header class="topbar">
+            <div>
+                <p class="breadcrumb">DYPIU / Dashboard</p>
+                <h1>Administrator Portal</h1>
+                <p class="subtitle">Welcome back! Manage your student records.</p>
+            </div>
+
+            <div class="admin-profile">
+                <div class="admin-avatar">A</div>
+                <div>
+                    <strong>Administrator</strong>
+                    <small>Portal Admin</small>
+                </div>
+            </div>
+        </header>
+
+        <section id="dashboard" class="welcome-banner">
+            <div>
+                <span class="welcome-tag">STUDENT MANAGEMENT SYSTEM</span>
+                <h2>Welcome to DYPIU Student Portal!</h2>
+                <p>Manage student information and monitor academic records in one place.</p>
+            </div>
+            <div class="banner-icon">🎓</div>
+        </section>
+
+        <section class="stats">
+            <article class="stat-card">
+                <div class="stat-icon purple">♙</div>
+                <div>
+                    <p>Total Students</p>
+                    <h2 id="totalStudents">0</h2>
+                </div>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-icon green">✓</div>
+                <div>
+                    <p>Active Students</p>
+                    <h2 id="activeStudents">0</h2>
+                </div>
+            </article>
+        </section>
+
+        <section class="panel" id="studentsSection">
+            <div class="section-header">
+                <div>
+                    <h2>Student Management</h2>
+                    <p>View and manage student records.</p>
+                </div>
+
+                <button class="primary-btn" id="openModal">
+                    + Add New Student
+                </button>
+            </div>
+
+            <div class="search-area">
+                <input type="search" id="searchInput"
+                       placeholder="Search by name, roll number or course...">
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>STUDENT</th>
+                            <th>ROLL NUMBER</th>
+                            <th>COURSE</th>
+                            <th>STATUS</th>
+                            <th>ACTION</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentList"></tbody>
+                </table>
+            </div>
+
+            <p id="emptyMessage">No students found. Add your first student!</p>
+        </section>
+
+        <section class="panel faq-panel" id="faqSection">
+            <div class="section-header">
+                <div>
+                    <h2>Student Help Assistant</h2>
+                    <p>Find quick answers to common portal questions.</p>
+                </div>
+                <span class="assistant-icon">✦</span>
+            </div>
+
+            <div class="faq-content">
+                <p class="assistant-message">
+                    Hello! I'm your Student Help Assistant. Choose a question below.
+                </p>
+
+                <div class="faq-buttons">
+                    <button class="faq-btn" data-question="add">How do I add a student?</button>
+                    <button class="faq-btn" data-question="search">How do I search for a student?</button>
+                    <button class="faq-btn" data-question="delete">How do I delete a student?</button>
+                    <button class="faq-btn" data-question="save">Are my records saved?</button>
+                </div>
+
+                <p id="faqAnswer" class="faq-answer" aria-live="polite">
+                    Select a question to see its answer.
+                </p>
+            </div>
+        </section>
+
+        <footer>
+            © 2026 DYPIU Student Management Portal | Academic Project
+        </footer>
+
+    </main>
+</div>
+
+<!-- Add Student Modal -->
+<div class="modal-overlay" id="studentModal">
+    <div class="modal">
+        <div class="modal-header">
+            <div>
+                <h2>Add New Student</h2>
+                <p>Enter the student's details below.</p>
+            </div>
+            <button type="button" class="close-btn" id="closeModal" aria-label="Close">×</button>
+        </div>
+
+        <form id="studentForm">
+            <label for="name">Student Name</label>
+            <input type="text" id="name" placeholder="Enter full name" required>
+
+            <label for="roll">Roll Number</label>
+            <input type="text" id="roll" placeholder="Enter roll number" required>
+
+            <label for="course">Course</label>
+            <input type="text" id="course" placeholder="Enter course name" required>
+
+            <div class="modal-actions">
+                <button type="button" class="secondary-btn" id="cancelModal">Cancel</button>
+                <button type="submit" class="primary-btn">Add Student</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
